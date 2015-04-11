@@ -1,5 +1,6 @@
-$(document).ready(function() {
 
+$(document).ready(function() {
+    "use strict";
     $("#button").click(function() {
         var url = $("#url").val();
         if (url === undefined) {
@@ -18,8 +19,8 @@ $(document).ready(function() {
                 })
                 .done(function(data, status) {
 
-                    $('#result').html("");
-                    $('#result').append("<a href=" + data.url + ">" + data.url + "</a>");
+                    $("#result").html("");
+                    $("#result").append("<a href=" + data.url + ">" + data.url + "</a>");
 
 
                 })
@@ -45,9 +46,9 @@ $(document).ready(function() {
             var i = 0;
             $(".popular").append("<table>");
             $(".popular").append("<tr><th>Long Url</th><th>Visits</th></tr>");
-            for (i = 0; i < data.top.length; i++) {
-                $(".popular").append("<tr><td><a href=" + data.top[i] + ">" + data.top[i] + "</a></td><td>"+data.top[i+1]+"</td></tr>");
-                i++;
+            for (i = 0; i < data.length; i++) {
+                $(".popular").append("<tr><td><a href='" + data[i].longurl + "'>" + data[i].longurl + "</a></td><td>" + data[i].views + "</td></tr>");
+
             }
             $(".popular").append("</table>");
 
